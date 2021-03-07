@@ -1,3 +1,5 @@
+package bossworker;
+
 import java.util.Deque;
 
 public class Boss {

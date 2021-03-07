@@ -1,3 +1,8 @@
+package bossworker;
+
+import bossworker.Boss;
+import bossworker.Worker;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
