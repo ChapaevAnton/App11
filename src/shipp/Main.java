@@ -20,7 +20,6 @@ public class Main {
         collection.add("Hello"); // 3
         System.out.println(collection.size());
 
-
     }
 
     private static void modifyList(List<? super Number> list) {
