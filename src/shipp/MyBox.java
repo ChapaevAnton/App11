@@ -1,10 +1,10 @@
 package shipp;
 
-public class Box<T> {
+public class MyBox<T> {
 
     private T contents;
 
-    public Box(T contents) {
+    public MyBox(T contents) {
         this.contents = contents;
     }
 

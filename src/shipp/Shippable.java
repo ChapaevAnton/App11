@@ -1,5 +1,5 @@
 package shipp;
 
 public interface Shippable<T> {
-    void ship(T stuff);
+        void ship(T stuff);
 }
