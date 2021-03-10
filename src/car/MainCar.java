@@ -1,8 +1,6 @@
 package car;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class MainCar {
 
@@ -22,6 +20,14 @@ public class MainCar {
         Car car6 = new Car(MAZDA, "6", false);
         Car car7 = new Car(MAZDA, "7", false);
         Car car8 = new Car(MAZDA, "8", false);
+        Car car11 = new Car(KIA, "1", false);
+        Car car12 = new Car(KIA, "2", false);
+        Car car13 = new Car(TOYOTA, "3", false);
+        Car car14 = new Car(TOYOTA, "4", false);
+        Car car15 = new Car(TOYOTA, "5", false);
+        Car car16 = new Car(MAZDA, "6", false);
+        Car car17 = new Car(MAZDA, "7", false);
+        Car car18 = new Car(MAZDA, "8", false);
 
         List<Car> carList = new ArrayList<>();
         carList.add(car1);
@@ -32,6 +38,14 @@ public class MainCar {
         carList.add(car6);
         carList.add(car7);
         carList.add(car8);
+        carList.add(car11);
+        carList.add(car12);
+        carList.add(car13);
+        carList.add(car14);
+        carList.add(car15);
+        carList.add(car16);
+        carList.add(car17);
+        carList.add(car18);
 
         List<Car> newCarList = carList;
 
@@ -46,10 +60,11 @@ public class MainCar {
             }
         }
 
-        for (Car car : newCarList) {
-            System.out.println(car);
-        }
-        for (Car car : carList) {
+
+
+        Set<Car> serCar = new HashSet<>(newCarList);
+
+        for (Car car : serCar) {
             System.out.println(car);
         }
 
