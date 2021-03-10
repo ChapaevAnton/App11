@@ -6,6 +6,8 @@ import java.util.Objects;
 
 class Car {
 
+
+
     private final String brand;
     private final String model;
     private boolean sale;
