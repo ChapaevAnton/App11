@@ -4,8 +4,7 @@ import java.util.Objects;
 
 // TODO: 10.03.2021 10.5
 
-class Car {
-
+class Car implements Comparable<Car> {
 
 
     private final String brand;
@@ -44,7 +43,7 @@ class Car {
         if (o == null || getClass() != o.getClass()) return false;
 
         Car car = (Car) o;
-        return brand.equals(car.brand) && model.equals(car.model);
+        return brand.equals(car.brand) && model.equals(car.model) && sale == car.sale;
 
 
     }
@@ -64,4 +63,8 @@ class Car {
     }
 
 
+    @Override
+    public int compareTo(Car o) {
+        return model.compareTo(o.model);
+    }
 }
