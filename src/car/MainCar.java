@@ -47,35 +47,39 @@ public class MainCar {
         carList.add(car15);
         carList.add(car16);
 
-
+        System.out.println("выводим лист");
+        for (Car car: carList){
+            System.out.println(car);
+        }
+        System.out.println("=================");
         // TODO: 13.03.2021 11.7
-        Set<Car> carSet = new TreeSet<>(MyComparator.getModelComparing.reversed());
-        Set<Car> carSet1 = new TreeSet<>(MyComparator.getNameComparing.reversed());
-        carSet.addAll(carList);
-        carSet1.addAll(carList);
+//        Set<Car> carSet = new TreeSet<>(MyComparator.getModelComparing.reversed());
+//        Set<Car> carSet1 = new TreeSet<>(MyComparator.getNameComparing.reversed());
+//        carSet.addAll(carList);
+//        carSet1.addAll(carList);
+//
+//        for (Car car : carSet) {
+//            System.out.println(car);
+//        }
+//        System.out.println("=================");
+//
+//        for (Car car : carSet1) {
+//            System.out.println(car);
+//        }
 
-        for (Car car : carSet) {
-            System.out.println(car);
-        }
-        System.out.println("=================");
 
-        for (Car car : carSet1) {
-            System.out.println(car);
-        }
-
-
-        System.out.println("=================");
-        // TODO: 13.03.2021 11.6
-        Map<Car, Integer> carMap = new HashMap<>(100, 0.5f);
-
-        for (Car car : carList) {
-            if (carMap.containsKey(car)) {
-                int count = carMap.get(car);
-                carMap.put(car, ++count);
-            } else {
-                carMap.put(car, 1);
-            }
-        }
+//        System.out.println("=================");
+//        // TODO: 13.03.2021 11.6
+//        Map<Car, Integer> carMap = new HashMap<>(100, 0.5f);
+//
+//        for (Car car : carList) {
+//            if (carMap.containsKey(car)) {
+//                int count = carMap.get(car);
+//                carMap.put(car, ++count);
+//            } else {
+//                carMap.put(car, 1);
+//            }
+//        }
 
 
         //QUESTION: 13.03.2021 После того как я переношу из List в HashMap - пропадает 2 значения
@@ -88,8 +92,15 @@ public class MainCar {
             carHashMapQuest.put(car, ++count);
         }
 
+        for (Map.Entry<Car, Integer> itemCarMap : carHashMapQuest.entrySet()) {
+            System.out.println(itemCarMap.getKey() + "->" + itemCarMap.getValue());
+        }
 
-        Map<Car, Integer> carTreeMap = new TreeMap<>(Comparator.reverseOrder());
+
+
+
+        Map<Car, Integer> carTreeMap = new TreeMap<>(Comparator.comparing(Car::getBrand).thenComparing(Car::getModel));
+        Map<Car, Integer> carTreeMap1 = new TreeMap<>(Comparator.comparing(Car::getBrand).thenComparing(Car::getModel));
         carTreeMap.putAll(carHashMapQuest);
 
 
@@ -101,7 +112,7 @@ public class MainCar {
 
         System.out.println("carList->"+carList.size());
         System.out.println("carHashMapQuest->"+carHashMapQuest.size());
-        System.out.println("carList->"+carTreeMap.size());
+        System.out.println("carTreeMap->"+carTreeMap.size());
 
 
         // TODO: 09.03.2021 10.4
