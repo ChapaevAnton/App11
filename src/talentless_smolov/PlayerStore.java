@@ -7,9 +7,9 @@ public class PlayerStore {
         Player readyPlayer = null;
         for (Player player : players) {
             if (player.getWeight() > weight) {
-                System.err.println("The player "+ player.getName () +" has exceeded its weight by: " + (player.getWeight() - 80) + "kg");
+                System.err.println("Player "+ player.getName () +" has exceeded its weight by: " + (player.getWeight() - 80) + "kg");
             } else if (player.isInjury()) {
-                System.err.println("The player "+ player.getName () +" is injured ...");
+                System.err.println("Player "+ player.getName () +" is injured ...");
             } else {
                 System.out.println("Player "+ player.getName () +" is in great shape !!!");
                 readyPlayer = player;
@@ -24,14 +24,14 @@ public class PlayerStore {
 
     public static boolean injured(Player player) throws PlayerInjuredException {
 
-        if (player.isInjury()) throw new PlayerInjuredException("The player "+ player.getName () +" is injured ...");
+        if (player.isInjury()) throw new PlayerInjuredException("Player "+ player.getName () +" is injured ...");
         else return true;
     }
 
     public static void main(String[] args) {
 
         Player[] players = {
-                new Player(100, false, "Smolov"),
+                new Player(80, false, "Smolov"),
                 new Player(80, true, "Dzuba"),
                 new Player(100, false, "Kirzjakov")};
 
