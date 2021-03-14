@@ -4,29 +4,48 @@ public class PlayerStore {
 
     public static Player findPlayer(Player[] players, int weight) throws PlayerNotFoundException {
 
-//        for(Player player:players){
-//            if(player.getWeight())
-//        }
+        Player readyPlayer = null;
+        for (Player player : players) {
+            if (player.getWeight() > weight) {
+                System.err.println("The player "+ player.getName () +" has exceeded its weight by: " + (player.getWeight() - 80) + "kg");
+            } else if (player.isInjury()) {
+                System.err.println("The player "+ player.getName () +" is injured ...");
+            } else {
+                System.out.println("Player "+ player.getName () +" is in great shape !!!");
+                readyPlayer = player;
+            }
+        }
+        if (readyPlayer == null)
+            throw new PlayerNotFoundException("Player not found, All players need to lose weight urgently!!!");
 
-        return null;
+        return readyPlayer;
     }
 
 
     public static boolean injured(Player player) throws PlayerInjuredException {
-        return false;
+
+        if (player.isInjury()) throw new PlayerInjuredException("The player "+ player.getName () +" is injured ...");
+        else return true;
     }
 
     public static void main(String[] args) {
 
         Player[] players = {
-                new Player(80, true, "Smolov"),
-                new Player(120, false, "Dzuba")};
+                new Player(100, false, "Smolov"),
+                new Player(80, true, "Dzuba"),
+                new Player(100, false, "Kirzjakov")};
 
-//        Player player = findPlayer(players, 80);
+        try {
+            Player player = findPlayer(players, 80);
+
+            if (injured(player)) {
+                System.out.println(player.getName() + " is ready to play");
+            }
+        } catch (PlayerNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
+
 //
-//        if (injured(player)) {
-//            System.out.println(player.getName() + " is ready to play");
-//        }
     }
 
 }
