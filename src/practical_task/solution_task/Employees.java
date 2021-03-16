@@ -1,8 +1,7 @@
-package practical_task;
+package practical_task.solution_task;
 
 public class Employees {
 
-    // TODO: Класс Employees - самодостаточен, в нем уже есть все для решения, ну почти все...
     private String name; //ФИО
     private int workExperience; //опыт работы
 
@@ -20,6 +19,11 @@ public class Employees {
         return name;
     }
 
-    // TODO: Подсказка - может быть стоит переопределить метод toString
-
+    // TODO: 16.03.2021
+    @Override
+    public String toString() {
+        return "Сотрудник{" +
+                "ФИО='" + name + '\'' +
+                ", опыт работы=" + workExperience + '}';
+    }
 }

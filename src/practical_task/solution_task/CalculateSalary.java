@@ -1,4 +1,4 @@
-package practical_task;
+package practical_task.solution_task;
 
 public class CalculateSalary {
 
@@ -6,6 +6,6 @@ public class CalculateSalary {
     //  зарплата = опыт работы * оклад;
     public static double calcWage(Employees employeeKey, Position positionValue) {
 
-        return 0;
+        return employeeKey.getWorkExperience() * positionValue.getSalary();
     }
 }

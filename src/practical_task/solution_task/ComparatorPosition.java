@@ -1,4 +1,4 @@
-package practical_task;
+package practical_task.solution_task;
 
 import java.util.Comparator;
 
@@ -12,10 +12,19 @@ public class ComparatorPosition {
     //  Или действуйте по обстоятельствам исходя из своих знаний,
     //  ничего не мешает вам, создать еще один класс(файл) компаратора...
 
+    public static class name implements Comparator<Employees> {
 
-    public static class name {
+        @Override
+        public int compare(Employees o1, Employees o2) {
+            return o1.getName().compareTo(o2.getName());
+        }
     }
 
-    public static class workExperience {
+    public static class workExperience implements Comparator<Employees> {
+
+        @Override
+        public int compare(Employees o1, Employees o2) {
+            return o1.getWorkExperience() - o2.getWorkExperience();
+        }
     }
 }

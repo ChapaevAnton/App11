@@ -1,8 +1,7 @@
-package practical_task;
+package practical_task.solution_task;
 
 public class Position {
 
-    // TODO: Класс Position - самодостаточен, в нем уже есть все для решения, ну почти все...
     public static final String ENGINEER = "Инженер";
     public static final String PROGRAMMER = "Программист";
     public static final String DESIGNER = "Дизайнер";
@@ -26,6 +25,13 @@ public class Position {
         return salary;
     }
 
-    // TODO: Подсказка - может быть стоит переопределить метод toString
-
+    // TODO: 16.03.2021
+    @Override
+    public String toString() {
+        return "{" +
+                "Должность='" + position + '\'' +
+                ", оклад=" + salary +
+                ", зарплата=" + wage +
+                '}';
+    }
 }

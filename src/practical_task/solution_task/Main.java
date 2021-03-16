@@ -1,4 +1,4 @@
-package practical_task;
+package practical_task.solution_task;
 
 import java.util.*;
 
@@ -47,9 +47,11 @@ public class Main {
         // TODO: 16.03.2021 ЗАДАНИЕ
         // TODO: Произведите расчет заработной платы сотрудников
         //  исходя и опыта работы и оклада - зарплата = опыт работы * оклад;
-
         //  код решения писать здесь
-
+        for (Map.Entry<Employees, Position> entryEmployee : hashMapEmployees.entrySet()) {
+            double salary = CalculateSalary.calcWage(entryEmployee.getKey(), entryEmployee.getValue());
+            entryEmployee.getValue().setWage(salary);
+        }
 
 
         // TODO: Выведите упорядоченный список ВСЕХ сотрудников - штатное расписание (по ФИО и ОПЫТУ РАБОТЫ)
@@ -57,11 +59,15 @@ public class Main {
         //  Пример: Сотрудник{ФИО='Демидов', опыт работы=25}->{Должность='Инженер', оклад=1000.0, зарплата=0.0
         //  а так же количество сотрудников в штатном расписании.
         //  Пример: Количество сотрудников в штатном расписании: 11
-
         //  код решения писать здесь
 
-        Map<Employees, Position> orderedEmployees = null;
+        Map<Employees, Position> orderedEmployees = new TreeMap<>(new ComparatorPosition.name().thenComparing(new ComparatorPosition.workExperience()));
+        orderedEmployees.putAll(hashMapEmployees);
 
+        for (Map.Entry<Employees, Position> entryEmployee : orderedEmployees.entrySet()) {
+
+            System.out.println(entryEmployee.getKey() + "->" + entryEmployee.getValue());
+        }
 
         if(orderedEmployees!=null) {
             System.out.println("Количество сотрудников в штатном расписании: " + orderedEmployees.size());
@@ -69,7 +75,6 @@ public class Main {
             if (orderedEmployees.size() != employee.size())
                 System.err.println("Ошибка!!! Cписки сотрудников не соответствуют!!!");
         } else System.err.println("Приступите к решению задачи");
-
     }
 
 }
